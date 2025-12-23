@@ -1,0 +1,345 @@
+---
+title: "Setting up Accounts"
+description: "Create and configure your team and budget accounts to start deploying boosts"
+---
+
+import UnderConstruction from '/snippets/under-construction.mdx'
+
+<UnderConstruction />
+
+# Setting up Accounts
+
+Before you can deploy boosts, you need to set up your accounts. This guide walks you through authentication, creating a team, setting up a budget account, and inviting team members.
+
+## Prerequisites
+
+- An email address or Google account for authentication
+- Tokens to fund your budget account (on a supported chain)
+
+## Authentication with Privy
+
+Boost uses [Privy](https://privy.io) for authentication, which provides a seamless onboarding experience with automatic wallet creation.
+
+<Steps titleSize="h3">
+  <Step title="Visit the Boost Platform">
+    Navigate to [beta.boost.xyz](https://beta.boost.xyz) and click "Sign In" or "Get Started."
+  </Step>
+
+  <Step title="Choose Your Login Method">
+    Select your preferred authentication method:
+    - **Email**: Enter your email and verify with a code
+    - **Google**: Sign in with your Google account
+
+    <Tip>
+      You don't need an existing crypto wallet to get started. Boost will create one for you automatically.
+    </Tip>
+  </Step>
+
+  <Step title="Automatic Wallet Creation">
+    When you authenticate, Privy automatically creates an embedded Ethereum wallet linked to your account. This wallet is:
+    - **Secure**: Managed by Privy with enterprise-grade security
+    - **Gasless**: Transactions are sponsored, so you don't need ETH for gas
+    - **Portable**: Accessible across devices when you sign in
+  </Step>
+</Steps>
+
+### Sponsored Transactions
+
+Boost uses [Alchemy Account Kit](https://www.alchemy.com/account-kit) for smart account functionality. This means:
+
+- **No gas fees**: Your transactions are sponsored on supported chains
+- **Simplified UX**: No need to hold ETH in your wallet for gas
+- **Supported chains**: Base, Optimism, Celo, and World Chain
+
+<Note>
+  While transactions are gasless, you still need to fund your budget account with tokens for boost rewards.
+</Note>
+
+## Create a Team
+
+Teams allow you to organize your boost campaigns and collaborate with others. Each team has a budget account that holds the tokens used to fund rewards.
+
+<Steps titleSize="h3">
+  <Step title="Start Team Creation">
+    After signing in, you'll be prompted to create a team. Click "Create Team" to begin.
+  </Step>
+
+  <Step title="Enter Team Details">
+    Configure your team:
+    - **Team Name**: A name to identify your organization
+    - **Team Avatar** (optional): Upload an image for your team
+
+  </Step>
+
+  <Step title="Deploy Budget Account">
+    Your team's budget account is deployed as a smart contract on the blockchain. This happens automatically during team creation.
+
+    <Note>
+      Budget accounts use the `ManagedBudgetWithFeesV2` smart contract, which provides secure fund management and role-based access control.
+    </Note>
+  </Step>
+</Steps>
+
+## Understanding Budget Accounts
+
+Budget accounts are smart contracts that securely manage your boost funds. They provide:
+
+- **On-chain security**: Funds are held in audited smart contracts
+- **Role-based access**: Control who can deploy boosts and manage funds
+- **Multi-token support**: Hold multiple token types in one account
+- **Withdrawal protection**: Only authorized users can withdraw funds
+
+### Budget Account Structure
+
+Each budget account has:
+
+| Property | Description |
+|----------|-------------|
+| **Address** | The on-chain address where funds are held |
+| **Owner** | The original creator with full control |
+| **Chain** | The blockchain network (e.g., Base, Optimism) |
+| **Members** | Team members with assigned roles |
+
+## Team Roles
+
+Boost supports two roles for team members, each with different permissions:
+
+<Tabs>
+  <Tab title="Admin">
+    **Full Control**
+
+    Admins can:
+    - Deploy and manage boosts
+    - Fund and withdraw from the budget
+    - Invite and remove team members
+    - Change member roles
+
+    <Note>
+      The team owner automatically has admin privileges that cannot be revoked.
+    </Note>
+  </Tab>
+
+  <Tab title="Manager">
+    **Deploy Only**
+
+    Managers can:
+    - Deploy boosts using the team's budget
+    - View boost performance and analytics
+
+    Managers cannot:
+    - Withdraw funds
+    - Invite or manage team members
+    - Access budget settings
+  </Tab>
+</Tabs>
+
+### Role Permissions Summary
+
+| Permission | Admin | Manager |
+|------------|-------|---------|
+| Deploy boosts | Yes | Yes |
+| View analytics | Yes | Yes |
+| Fund budget | Yes | No |
+| Withdraw funds | Yes | No |
+| Invite members | Yes | No |
+| Remove members | Yes | No |
+| Change roles | Yes | No |
+
+## Inviting Team Members
+
+Invite colleagues to collaborate on your boost campaigns. The invite system automatically creates wallets for new users.
+
+<Steps titleSize="h3">
+  <Step title="Open Team Settings">
+    Navigate to your team settings or click "Invite Members" from the dashboard.
+  </Step>
+
+  <Step title="Add Team Members">
+    For each person you want to invite:
+    - Enter their **email address**
+    - Select their **role** (Admin or Manager)
+
+    <Tip>
+      You can invite multiple people at once. Each will receive a personalized email invitation.
+    </Tip>
+  </Step>
+
+  <Step title="Confirm Invitations">
+    Review your invitations and confirm. This triggers:
+
+    1. **Wallet pre-generation**: A wallet is automatically created for each invitee
+    2. **On-chain role grant**: Their wallet address is granted the appropriate role on the budget contract
+    3. **Email notification**: Each invitee receives an email with instructions to join
+
+    <Note>
+      Role grants are on-chain transactions. Thanks to sponsored transactions, this doesn't cost you gas.
+    </Note>
+  </Step>
+</Steps>
+
+### How Invites Work
+
+When you invite someone:
+
+1. **If they're new to Boost**: A Privy account and embedded wallet are created for them automatically
+2. **If they already have an account**: Their existing wallet is linked to your team
+
+The invitee receives an email with:
+- Your team name
+- Their assigned role
+- A link to accept and get started
+
+### Invite Status
+
+Track the status of your invitations:
+
+| Status | Description |
+|--------|-------------|
+| **Wallet Created** | Wallet generated, email not yet sent |
+| **Invited** | Email sent, awaiting acceptance |
+| **Accepted** | Member has signed in and joined the team |
+| **Cancelled** | Invitation was revoked |
+
+## Funding Your Budget
+
+After creating your team, you need to fund your budget account with tokens for boost rewards.
+
+<Steps titleSize="h3">
+  <Step title="Navigate to Fund Budget">
+    From your dashboard, go to your budget account and click "Fund Budget" or "Deposit."
+  </Step>
+
+  <Step title="Get Your Budget Address">
+    Your budget account has a unique address on the blockchain. Copy this address to send tokens.
+
+    <Warning>
+      Make sure you're sending tokens on the correct network (the same chain as your budget account).
+    </Warning>
+  </Step>
+
+  <Step title="Transfer Tokens">
+    Send tokens to your budget address from any wallet. Only whitelisted tokens can be used for boost rewards.
+  </Step>
+</Steps>
+
+### Supported Funding Methods
+
+<CardGroup cols={2}>
+  <Card title="Direct Transfer" icon="arrow-right">
+    Send tokens directly to your budget address from any wallet or exchange.
+  </Card>
+
+  <Card title="Bridge & Fund" icon="bridge">
+    Bridge tokens from another chain and send to your budget address.
+  </Card>
+</CardGroup>
+
+## Managing Your Team
+
+### Viewing Members
+
+Access your team roster from the dashboard to see:
+- All current members and their roles
+- Pending invitations
+- Member activity
+
+### Modifying Roles
+
+Admins can change member roles:
+
+<Steps titleSize="h3">
+  <Step title="Select Member">
+    Click on a team member to view their details.
+  </Step>
+
+  <Step title="Edit Role">
+    Choose "Edit Role" and select the new role (Admin or Manager).
+  </Step>
+
+  <Step title="Confirm Change">
+    Confirm the role change. This updates their permissions on the budget contract.
+  </Step>
+</Steps>
+
+### Removing Members
+
+To remove a team member:
+
+1. Select the member from your team roster
+2. Click "Remove Member"
+3. Confirm the removal
+
+<Warning>
+  Removing a member revokes their role on the budget contract. They will no longer be able to deploy boosts or access team resources.
+</Warning>
+
+## Managing Your Budget
+
+<CardGroup cols={2}>
+  <Card title="View Balance" icon="wallet">
+    Check your current token balances, reserved amounts for active boosts, and available funds.
+  </Card>
+
+  <Card title="Add Funds" icon="plus">
+    Top up your budget at any time by sending additional tokens to your budget address.
+  </Card>
+
+  <Card title="Withdraw Funds" icon="arrow-right-from-bracket">
+    Admins can withdraw unused funds back to any wallet address.
+  </Card>
+
+  <Card title="Track Spending" icon="chart-line">
+    Monitor how your budget is being used across all active campaigns.
+  </Card>
+</CardGroup>
+
+## Multiple Budget Accounts
+
+You can create or join multiple budget accounts for different purposes:
+
+- **Separate campaigns**: Different budgets for different projects
+- **Multiple chains**: Budget accounts on different networks
+- **Team separation**: Different teams with independent budgets
+
+To switch between budget accounts, use the account selector in your dashboard.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="I didn't receive my invite email">
+    Check your spam folder. If you still don't see it, ask the team admin to resend the invitation. Make sure your email address was entered correctly.
+  </Accordion>
+
+  <Accordion title="My transaction failed when inviting members">
+    This is rare since transactions are sponsored. If it happens:
+    - Ensure you have an active internet connection
+    - Try refreshing the page and attempting again
+    - Contact support if the issue persists
+  </Accordion>
+
+  <Accordion title="I can't see my funds after depositing">
+    - Verify you sent tokens to the correct budget address
+    - Confirm you're on the same network as your budget account
+    - Wait a few moments for the transaction to confirm
+    - Refresh your dashboard
+  </Accordion>
+
+  <Accordion title="A team member can't deploy boosts">
+    Check that:
+    - Their invitation was accepted (status shows "Accepted")
+    - They have at least Manager role
+    - They're connected with the correct account
+  </Accordion>
+
+  <Accordion title="How do I leave a team?">
+    Contact your team admin to have your role revoked. If you're the owner, you'll need to transfer ownership before leaving.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+Once your accounts are set up and funded, you're ready to create your first boost campaign.
+
+<Card title="Setting up an Action" icon="bullseye" href="/v2/documentation/getting-started/setting-up-an-action">
+  Learn how to configure the on-chain action you want to incentivize.
+</Card>

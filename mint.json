@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Boost Docs",
   "versions": [
-    "v1",
-    "v2"
+    "v2",
+    "v1 (Deprecated)"
   ],
   "logo": {
     "dark": "/assets/boost-icon-white.svg",
@@ -37,7 +37,7 @@
       "name": "API Reference",
       "url": "v1/api-reference",
 			"openapi": "https://api.boost.xyz/openapi.json",
-      "version": "v1"
+      "version": "v1 (Deprecated)"
     },
     {
       "name": "SDK Docs",
@@ -66,36 +66,17 @@
       "group": "Overview",
       "version": "v2",
       "pages": [
-        "v2/documentation/overview/introduction",
-        "v2/documentation/overview/why-we-built-boost",
-        "v2/documentation/overview/vision-of-boost",
-        "v2/documentation/overview/whats-new"
+        "v2/documentation/overview/introduction"
       ]
     },
     {
-      "group": "How It Works",
+      "group": "Getting Started",
       "version": "v2",
       "pages": [
-        "v2/documentation/how-it-works/budget-accounts",
-        "v2/documentation/how-it-works/deploying-boosts",
-        {
-          "group": "Action Selection",
-          "pages": [
-            "v2/documentation/action-selection/introduction",
-            "v2/documentation/action-selection/understanding-etherscan-data",
-            "v2/documentation/action-selection/setting-up-boost-actions",
-            "v2/documentation/action-selection/advanced-techniques"
-          ]
-        },
-        {
-          "group": "Reward Selection",
-          "version": "v2",
-          "pages": [
-            "v2/documentation/reward-selection/tokens-supported",
-            "v2/documentation/reward-selection/strategies-for-reward-distribution",
-            "v2/documentation/reward-selection/budget-accounts"
-          ]
-        }
+        "v2/documentation/getting-started/setting-up-accounts",
+        "v2/documentation/getting-started/setting-up-an-action",
+        "v2/documentation/getting-started/deploying-a-boost",
+        "v2/documentation/getting-started/managing-boosts"
       ]
     },
     {
@@ -135,7 +116,7 @@
     },
     {
       "group": "Overview",
-      "version": "v1",
+      "version": "v1 (Deprecated)",
       "pages": [
         "v1/overview/introduction",
         "v1/overview/what-is-a-boost",
@@ -148,7 +129,7 @@
     },
     {
       "group": "Protocol Concepts",
-      "version": "v1",
+      "version": "v1 (Deprecated)",
       "pages": [
         "v1/protocol-concepts/attribution-system",
         "v1/protocol-concepts/protocol-fees",
@@ -158,7 +139,7 @@
     },
     {
       "group": "User Guides",
-      "version": "v1",
+      "version": "v1 (Deprecated)",
       "pages": [
         "v1/user-guides/how-to-add-your-project",
         "v1/user-guides/how-to-deploy-a-boost",
@@ -168,7 +149,7 @@
     },
     {
       "group": "Boost API",
-      "version": "v1",
+      "version": "v1 (Deprecated)",
       "pages": [
         "v1/boost-api/sign-in-to-boost",
         "v1/boost-api/create-a-boost",
@@ -178,14 +159,14 @@
     },
     {
       "group": "",
-      "version": "v1",
+      "version": "v1 (Deprecated)",
       "pages": [
         "v1/api-reference/openapi/openapi-json"
       ]
     },
     {
       "group": "auth",
-      "version": "v1",
+      "version": "v1 (Deprecated)",
       "pages": [
         "v1/api-reference/auth/nonce",
         "v1/api-reference/auth/login",
@@ -196,7 +177,7 @@
     },
     {
       "group": "manager",
-      "version": "v1",
+      "version": "v1 (Deprecated)",
       "pages": [
         "v1/api-reference/manager/reward-estimates",
         "v1/api-reference/manager/mint-reward-estimates",
@@ -209,7 +190,7 @@
     },
     {
       "group": "metrics",
-      "version": "v1",
+      "version": "v1 (Deprecated)",
       "pages": [
         "v1/api-reference/metrics/boost-protocol-metrics-by-boost",
         "v1/api-reference/metrics/boost-protocol-metrics",
@@ -225,7 +206,7 @@
     },
     {
       "group": "accesslists",
-      "version": "v1",
+      "version": "v1 (Deprecated)",
       "pages": [
         "v1/api-reference/accesslists/accesslists-by-user-id",
         "v1/api-reference/accesslists/update-accesslist",
@@ -239,7 +220,7 @@
     },
     {
       "group": "boosts",
-      "version": "v1",
+      "version": "v1 (Deprecated)",
       "pages": [
         "v1/api-reference/boosts/participants-by-boost",
         "v1/api-reference/boosts/participants-search",
@@ -255,7 +236,7 @@
     },
     {
       "group": "users",
-      "version": "v1",
+      "version": "v1 (Deprecated)",
       "pages": [
         "v1/api-reference/users/user-profile",
         "v1/api-reference/users/user-details",
@@ -283,7 +264,7 @@
     },
     {
       "group": "inboxes",
-      "version": "v1",
+      "version": "v1 (Deprecated)",
       "pages": [
         "v1/api-reference/inboxes/user-inboxes",
         "v1/api-reference/inboxes/inbox-whitelist-check",

@@ -1,0 +1,258 @@
+---
+title: "Deploying a Boost"
+description: "Select an action, configure rewards, and launch your boost campaign"
+---
+
+import UnderConstruction from '/snippets/under-construction.mdx'
+
+<UnderConstruction />
+
+# Deploying a Boost
+
+This guide walks you through the steps to deploy a boost: selecting your action, choosing a budget and token, configuring rewards, and launching your campaign.
+
+## Step 1: Select Your Action
+
+Before configuring rewards, choose which action to incentivize.
+
+<Steps titleSize="h3">
+  <Step title="Choose an Approved Action">
+    Select from your approved actions. Only actions that have passed review can be used for boosts.
+
+    If you don't have an approved action yet, you'll need to [set one up first](/v2/documentation/getting-started/setting-up-an-action).
+  </Step>
+
+  <Step title="Verify the Action Details">
+    Review the action configuration to make sure it targets the right activity:
+
+    - **Contract and event** being monitored
+    - **Who receives rewards** (the claimant)
+    - **Any filters** applied to qualifying transactions
+  </Step>
+</Steps>
+
+## Step 2: Choose Your Budget
+
+Select the budget account that will fund this boost and set your spend limit.
+
+### Selecting a Budget Account
+
+Choose from budget accounts where you have Admin or Manager access. Make sure the account:
+- Is on the chain where you want to run the campaign
+- Has sufficient token balance for your planned rewards
+
+### Understanding Protocol Fees
+
+<Warning>
+  **Boost charges a 10% protocol fee on all rewards distributed.** This fee is automatically added to your spend limit when you deploy.
+</Warning>
+
+When you set a spend limit, the protocol fee is calculated on top:
+
+| You Set | Protocol Fee (10%) | Total Required |
+|---------|-------------------|----------------|
+| 1,000 tokens | 100 tokens | 1,100 tokens |
+| 5,000 tokens | 500 tokens | 5,500 tokens |
+| 10,000 tokens | 1,000 tokens | 11,000 tokens |
+
+**Example:** If you want to distribute 1,000 USDC in rewards, you'll need 1,100 USDC in your budget account (1,000 for rewards + 100 for fees).
+
+<Note>
+  The fee is only charged on rewards that are actually claimed. If you end a campaign early and withdraw unused funds, you only pay fees on what was distributed.
+</Note>
+
+## Step 3: Select Your Reward Token
+
+Choose which token to distribute as rewards.
+
+### Token Whitelist
+
+<Note>
+  Only whitelisted tokens can be used for boost rewards. This protects users from receiving spam tokens or malicious contracts.
+</Note>
+
+The token whitelist includes popular, verified tokens on each supported chain. If you don't see your token:
+
+1. **Check what's available** in the token dropdown when deploying
+2. **Request a new token** by contacting the Boost team on [Discord](https://discord.gg/gdu3EpeqsD)
+
+When requesting a token, provide:
+- Token contract address
+- Chain (Base, Optimism, etc.)
+- Token name and symbol
+- Brief description of why you need it
+
+<Tip>
+  Token requests are typically reviewed within 24-48 hours. Plan ahead if you need a specific token for your campaign.
+</Tip>
+
+## Step 4: Configure Rewards
+
+Choose how much to reward participants. Boost supports two reward types:
+
+<Tabs>
+  <Tab title="Fixed Rewards">
+    Everyone who qualifies receives the **same token amount**.
+
+    **You configure:**
+    - **Reward Amount**: Number of tokens per claim (e.g., 10 USDC per mint)
+    - **Spend Limit**: Maximum tokens to distribute before the boost ends
+
+    **Example:**
+    - Reward: 50 tokens per action
+    - Spend limit: 5,000 tokens
+    - Result: Up to 100 people can claim (5,000 ÷ 50)
+
+    **Best for:** Simple campaigns where all participants should be treated equally.
+  </Tab>
+
+  <Tab title="Variable Rewards">
+    Rewards scale based on **a percentage of the on-chain value**.
+
+    **You configure:**
+    - **Reward Percentage**: Percent of the transaction value to reward (e.g., 5% of swap amount)
+    - **Max Reward**: Cap on tokens per claim to control costs
+    - **Spend Limit**: Maximum tokens to distribute overall
+
+    **Example:**
+    - Reward: 5% of swap value
+    - Max reward: 100 tokens
+    - User swaps 1,000 USDC → Receives 50 tokens (5%)
+    - User swaps 5,000 USDC → Receives 100 tokens (capped at max)
+
+    **Best for:** Incentivizing larger transactions or scaling rewards proportionally.
+  </Tab>
+</Tabs>
+
+### Choosing the Right Reward Amount
+
+Consider these factors when setting rewards:
+
+- **Action difficulty**: Harder or higher-commitment actions warrant larger rewards
+- **Target audience**: New users may need more incentive than existing users
+- **Competition**: Check what similar campaigns are offering
+- **Your budget**: Start conservative and top up if the campaign performs well
+
+## Step 5: Configure Allowlists (Optional)
+
+Allowlists restrict who can claim rewards to a specific set of addresses.
+
+### When to Use Allowlists
+
+<CardGroup cols={2}>
+  <Card title="Use Allowlists When" icon="check">
+    - Targeting a specific community or holder group
+    - Running exclusive campaigns for partners
+    - Preventing bot/sybil farming
+    - Rewarding existing users only
+  </Card>
+
+  <Card title="Skip Allowlists When" icon="xmark">
+    - You want maximum reach and participation
+    - Running open acquisition campaigns
+    - The action itself is restrictive enough
+    - You want organic discovery
+  </Card>
+</CardGroup>
+
+### Allowlist Tradeoffs
+
+| Approach | Pros | Cons |
+|----------|------|------|
+| **With Allowlist** | Targeted distribution, reduced farming risk, predictable audience | Limited reach, requires maintaining address list, may miss organic users |
+| **Without Allowlist** | Maximum participation, organic growth, simpler setup | Higher farming risk, less predictable costs, may attract non-target users |
+
+### Setting Up an Allowlist
+
+<Steps titleSize="h3">
+  <Step title="Prepare Your Address List">
+    Create a list of wallet addresses that should be eligible. Common sources:
+    - NFT holders (snapshot of a collection)
+    - Token holders above a threshold
+    - Previous campaign participants
+    - Partner community members
+  </Step>
+
+  <Step title="Upload the List">
+    Upload your address list when configuring the boost. The system will validate the addresses.
+  </Step>
+
+  <Step title="Verify Coverage">
+    Check that your allowlist covers your intended audience. You can update the list later if needed.
+  </Step>
+</Steps>
+
+<Tip>
+  Start without an allowlist to gauge organic interest, then add one if you see farming behavior.
+</Tip>
+
+## Step 6: Review and Deploy
+
+Before launching, verify your configuration:
+
+<Steps titleSize="h3">
+  <Step title="Check the Activity Preview">
+    The preview shows recent transactions that would qualify for rewards. Verify:
+    - The right transactions are being captured
+    - Claimant addresses look correct
+    - Reward amounts match your expectations
+  </Step>
+
+  <Step title="Review Total Costs">
+    Confirm your total budget including the 10% protocol fee:
+
+    | Item | Amount |
+    |------|--------|
+    | Spend Limit | Your configured amount |
+    | Protocol Fee (10%) | Added automatically |
+    | **Total Required** | Must be in your budget account |
+  </Step>
+
+  <Step title="Deploy">
+    Click "Deploy Boost" and approve the transaction. On supported chains (Base, Optimism, Celo, World Chain), the transaction is sponsored—no gas needed.
+  </Step>
+</Steps>
+
+## After Deployment
+
+Once live, your boost will:
+- Start accepting claims immediately
+- Show up in your dashboard for monitoring
+- Distribute rewards as users complete the action
+
+<Card title="Managing Boosts" icon="gear" href="/v2/documentation/getting-started/managing-boosts">
+  Monitor performance, top up budget, or end campaigns.
+</Card>
+
+## Quick Reference
+
+| Setting | Fixed Rewards | Variable Rewards |
+|---------|--------------|------------------|
+| **Reward** | Token amount per claim | Percentage of tx value |
+| **Cap** | N/A (fixed amount) | Max reward per claim |
+| **Best for** | Equal treatment | Scaling with activity |
+| **Predictability** | High | Medium |
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="I don't see any approved actions">
+    You need to create and get an action approved before deploying a boost. See [Setting up an Action](/v2/documentation/getting-started/setting-up-an-action).
+  </Accordion>
+
+  <Accordion title="My budget account doesn't have enough funds">
+    Remember to account for the 10% protocol fee. If your spend limit is 1,000 tokens, you need 1,100 tokens in your budget.
+  </Accordion>
+
+  <Accordion title="The token I want to use isn't listed">
+    Only whitelisted tokens are available. Request your token on [Discord](https://discord.gg/gdu3EpeqsD) with the contract address and chain.
+  </Accordion>
+
+  <Accordion title="Activity preview shows no transactions">
+    This could mean your action parameters are too restrictive, or no matching transactions have occurred recently. This doesn't prevent deployment—new qualifying transactions will be captured once you're live.
+  </Accordion>
+
+  <Accordion title="Should I use an allowlist?">
+    Start without one unless you have a specific audience in mind. You can always create a new boost with an allowlist if you see unwanted behavior.
+  </Accordion>
+</AccordionGroup>

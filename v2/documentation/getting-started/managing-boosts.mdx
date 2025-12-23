@@ -1,0 +1,183 @@
+---
+title: "Managing Boosts"
+description: "Monitor, modify, and manage your active boost campaigns"
+---
+
+import UnderConstruction from '/snippets/under-construction.mdx'
+
+<UnderConstruction />
+
+# Managing Boosts
+
+Once your boosts are deployed, you can monitor their performance, add funds, end campaigns, or duplicate successful configurations. This guide covers all aspects of managing your active campaigns.
+
+## Dashboard Overview
+
+Your dashboard provides a centralized view of all your boost campaigns.
+
+### Boosts Table
+
+The main boosts table displays:
+
+| Column | Description |
+|--------|-------------|
+| **Boost** | Campaign name, reward token, and status badge |
+| **Budget Claimed** | Amount distributed vs. total budget |
+| **Avg. CPC** | Average cost per claim |
+| **Claims** | Total number of successful claims |
+| **Actions** | Quick actions menu |
+
+<Tip>
+  Click on any row to view detailed information about that boost.
+</Tip>
+
+## Viewing Boost Details
+
+Click on a boost to see comprehensive campaign information:
+
+### Performance Metrics
+
+- **Total Claims**: Number of successful reward claims
+- **Budget Used**: Amount of tokens distributed
+- **Remaining Balance**: Tokens still available for claims
+- **Average CPC**: Cost per claim for campaign efficiency analysis
+
+### Activity Feed
+
+View recent claim activity including:
+- Claimant addresses
+- Claim timestamps
+- Reward amounts
+- Transaction links
+
+## Managing Active Campaigns
+
+### Top Up Budget
+
+Add more funds to an active campaign to extend its reach.
+
+<Steps titleSize="h3">
+  <Step title="Open the Actions Menu">
+    Click the three-dot menu on the boost row, or navigate to the boost details page.
+  </Step>
+
+  <Step title="Select Top Up">
+    Choose "Top Up" from the actions menu.
+  </Step>
+
+  <Step title="Enter Amount">
+    Specify the amount of tokens to add to the campaign.
+
+    <Note>
+      Top-up tokens are drawn from your budget account. Ensure sufficient balance.
+    </Note>
+  </Step>
+
+  <Step title="Confirm Transaction">
+    Approve the transaction in your wallet to complete the top-up.
+  </Step>
+</Steps>
+
+### End Campaign
+
+Stop a campaign early and withdraw remaining funds.
+
+<Steps titleSize="h3">
+  <Step title="Open the Actions Menu">
+    Click the three-dot menu on the boost row.
+  </Step>
+
+  <Step title="Select End Campaign">
+    Choose "End Campaign" from the actions menu.
+
+    <Warning>
+      Ending a campaign is irreversible. Make sure you want to stop accepting new claims.
+    </Warning>
+  </Step>
+
+  <Step title="Confirm and Withdraw">
+    Review the remaining balance that will be returned to your budget account, then confirm the transaction.
+  </Step>
+</Steps>
+
+### Duplicate Boost
+
+Quickly create a new campaign based on an existing configuration.
+
+<Steps titleSize="h3">
+  <Step title="Open the Actions Menu">
+    Click the three-dot menu on the boost you want to duplicate.
+  </Step>
+
+  <Step title="Select Duplicate">
+    Choose "Duplicate" from the actions menu. This opens the deploy flow pre-filled with the existing configuration.
+  </Step>
+
+  <Step title="Modify as Needed">
+    Adjust any settings for your new campaign:
+    - Update action parameters
+    - Change reward amounts
+    - Select a different budget account
+  </Step>
+
+  <Step title="Deploy the New Boost">
+    Complete the deploy flow to launch your new campaign.
+  </Step>
+</Steps>
+
+<Tip>
+  Duplicating is a great way to iterate on successful campaigns or run A/B tests with different reward amounts.
+</Tip>
+
+## Campaign Status
+
+Boosts can have the following statuses:
+
+| Status | Description |
+|--------|-------------|
+| **Active** | Campaign is live and accepting claims |
+| **Depleted** | Budget has been fully claimed |
+| **Ended** | Campaign was manually ended |
+
+## Analyzing Performance
+
+Use these metrics to evaluate your campaigns:
+
+<CardGroup cols={2}>
+  <Card title="Claim Rate" icon="chart-line">
+    Track how quickly claims are coming in to gauge campaign engagement.
+  </Card>
+
+  <Card title="Cost Efficiency" icon="coins">
+    Compare average CPC across campaigns to optimize reward amounts.
+  </Card>
+
+  <Card title="Budget Utilization" icon="percent">
+    Monitor what percentage of your budget is being claimed.
+  </Card>
+
+  <Card title="Unique Claimants" icon="users">
+    See how many unique addresses are participating.
+  </Card>
+</CardGroup>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Monitor regularly">
+    Check your campaigns daily, especially in the first few days after launch. Early monitoring helps identify issues with action configuration or reward settings.
+  </Accordion>
+
+  <Accordion title="Top up before depletion">
+    If a campaign is performing well, add funds before the budget runs out to maintain momentum.
+  </Accordion>
+
+  <Accordion title="Learn from data">
+    Use the analytics to understand what works. Higher claim rates might indicate better-targeted actions or more attractive rewards.
+  </Accordion>
+
+  <Accordion title="Iterate quickly">
+    Use the duplicate feature to quickly launch variations of successful campaigns with different parameters.
+  </Accordion>
+</AccordionGroup>
+
