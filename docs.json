@@ -1,0 +1,284 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Boost Docs",
+  "description": "Documentation for Boost Time-Based Incentives, One-Time Actions, and API integrations.",
+  "logo": {
+    "dark": "/assets/boost-icon-white.svg",
+    "light": "/assets/boost-icon-black.svg"
+  },
+  "favicon": "/assets/boost-icon-black.svg",
+  "colors": {
+    "primary": "#202042",
+    "light": "#43e661",
+    "dark": "#202042"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@boost.xyz"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "boost.xyz",
+      "href": "https://boost.xyz"
+    }
+  },
+  "api": {
+    "openapi": "https://api-v2.boost.xyz/openapi.json"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Platform",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "platform/overview"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "v2/documentation/support/joining-boost-community",
+              "v2/documentation/support/faqs"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Time-Based Incentives",
+        "groups": [
+          {
+            "group": "Start Here",
+            "pages": [
+              "tbi/introduction",
+              "tbi/how-it-works"
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "tbi/core-concepts/reward-calculation",
+              "tbi/core-concepts/campaign-lifecycle",
+              "tbi/core-concepts/campaign-modes"
+            ]
+          },
+          {
+            "group": "Integrate Time-Based Incentives",
+            "pages": [
+              "tbi/integrate/api-overview",
+              "tbi/integrate/user-rewards",
+              "tbi/integrate/claim-rewards"
+            ]
+          },
+          {
+            "group": "Glossary",
+            "pages": [
+              "tbi/glossary"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "One-Time Actions",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "v2/documentation/overview/introduction"
+            ]
+          },
+          {
+            "group": "Getting Started",
+            "pages": [
+              "v2/documentation/getting-started/setting-up-accounts",
+              "v2/documentation/getting-started/setting-up-an-action",
+              "v2/documentation/getting-started/deploying-a-boost",
+              "v2/documentation/getting-started/managing-boosts"
+            ]
+          },
+          {
+            "group": "Action Creation",
+            "pages": [
+              "v2/documentation/action-creation/introduction",
+              "v2/documentation/action-creation/getting-started",
+              "v2/documentation/action-creation/understanding-etherscan-data",
+              "v2/documentation/action-creation/action-section",
+              "v2/documentation/action-creation/claimant-information",
+              "v2/documentation/action-creation/parameter-filters",
+              "v2/documentation/action-creation/logs-section",
+              "v2/documentation/action-creation/advanced-techniques",
+              "v2/documentation/action-creation/effective-actions",
+              "v2/documentation/action-creation/practical-tips"
+            ]
+          },
+          {
+            "group": "Developers",
+            "pages": [
+              "v2/documentation/architecture/core-boost-v2",
+              "v2/documentation/contract-deployments/contracts",
+              "v2/documentation/links/boost-sdk",
+              "v2/documentation/links/boost-api",
+              "v2/documentation/links/boost-api-reference"
+            ]
+          },
+          {
+            "group": "SDK",
+            "pages": [
+              "v2/boost-sdk/overview",
+              "v2/boost-sdk/installation",
+              "v2/boost-sdk/quick-start",
+              "v2/boost-sdk/usage-with-react",
+              "v2/boost-sdk/working-with-events",
+              "v2/boost-sdk/integrating-your-contracts",
+              "v2/boost-sdk/asset-retrieval",
+              "v2/boost-sdk/protocol-fees",
+              {
+                "group": "Examples",
+                "pages": [
+                  "v2/boost-sdk/examples/zora-mint",
+                  "v2/boost-sdk/examples/agora-vote",
+                  "v2/boost-sdk/examples/claim-example",
+                  "v2/boost-sdk/examples/deploy-example"
+                ]
+              },
+              {
+                "group": "Boost Registry",
+                "pages": [
+                  "v2/boost-sdk/boost-registry/overview",
+                  "v2/boost-sdk/boost-registry/initializing-components",
+                  "v2/boost-sdk/boost-registry/clones"
+                ]
+              },
+              {
+                "group": "Boost Core",
+                "pages": [
+                  "v2/boost-sdk/boost-core/overview",
+                  "v2/boost-sdk/boost-core/get-boosts",
+                  "v2/boost-sdk/boost-core/claim-incentive"
+                ]
+              },
+              {
+                "group": "Managed Budget",
+                "pages": [
+                  "v2/boost-sdk/budgets/managed/overview",
+                  "v2/boost-sdk/budgets/managed/authorization",
+                  "v2/boost-sdk/budgets/managed/funding",
+                  "v2/boost-sdk/budgets/managed/retrieval"
+                ]
+              },
+              {
+                "group": "Incentives",
+                "pages": [
+                  {
+                    "group": "ERC20",
+                    "pages": [
+                      "v2/boost-sdk/incentives/erc20/overview",
+                      "v2/boost-sdk/incentives/erc20/rewards",
+                      "v2/boost-sdk/incentives/erc20/claims"
+                    ]
+                  },
+                  {
+                    "group": "ERC20 Pegged",
+                    "pages": [
+                      "v2/boost-sdk/incentives/erc20-pegged/overview",
+                      "v2/boost-sdk/incentives/erc20-pegged/rewards",
+                      "v2/boost-sdk/incentives/erc20-pegged/claims"
+                    ]
+                  },
+                  {
+                    "group": "ERC20 Variable",
+                    "pages": [
+                      "v2/boost-sdk/incentives/erc20-variable/overview",
+                      "v2/boost-sdk/incentives/erc20-variable/rewards",
+                      "v2/boost-sdk/incentives/erc20-variable/claims"
+                    ]
+                  },
+                  {
+                    "group": "ERC20 Variable Criteria",
+                    "pages": [
+                      "v2/boost-sdk/incentives/erc20-variable-criteria/overview",
+                      "v2/boost-sdk/incentives/erc20-variable-criteria/rewards",
+                      "v2/boost-sdk/incentives/erc20-variable-criteria/claims"
+                    ]
+                  },
+                  {
+                    "group": "ERC20 Pegged Variable Criteria",
+                    "pages": [
+                      "v2/boost-sdk/incentives/erc20-pegged-variable-criteria/overview",
+                      "v2/boost-sdk/incentives/erc20-pegged-variable-criteria/rewards",
+                      "v2/boost-sdk/incentives/erc20-pegged-variable-criteria/claims"
+                    ]
+                  },
+                  {
+                    "group": "Gradual Dutch Auction",
+                    "pages": [
+                      "v2/boost-sdk/incentives/cgda/overview",
+                      "v2/boost-sdk/incentives/cgda/rewards",
+                      "v2/boost-sdk/incentives/cgda/claims"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "API Guides",
+            "pages": [
+              {
+                "group": "Campaigns",
+                "pages": [
+                  "v2/boost-api/fetch-boosts",
+                  "v2/boost-api/boost-details",
+                  "v2/boost-api/boost-activity"
+                ]
+              },
+              {
+                "group": "Claiming",
+                "pages": [
+                  "v2/boost-api/get-signature"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Reference",
+        "groups": [
+          {
+            "group": "Time-Based Incentives API",
+            "pages": [
+              "reference/tbi-api"
+            ]
+          },
+          {
+            "group": "One-Time Actions API",
+            "openapi": "https://api-v2.boost.xyz/openapi.json",
+            "pages": [
+              "v2/api-reference/openapi/openapi-json",
+              "v2/api-reference/boost/get-a-list-of-boosts",
+              "v2/api-reference/boost/get-details-for-a-boost",
+              "v2/api-reference/boost/get-events-for-a-specific-boost",
+              "v2/api-reference/boost/generate-a-claim-signature-that-can-be-used-to-submit-a-claim",
+              "v2/api-reference/rewardkit/get-a-list-of-reward-kit-rewards",
+              "v2/api-reference/rewardkit/get-a-single-rewardkit-reward",
+              "v2/api-reference/rewardkit/get-a-users-rewardkit-profile",
+              "v2/api-reference/rewardkit/try-to-get-claim-signature-without-known-transaction"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/boost_xyz",
+      "github": "https://github.com/orgs/boostxyz/repositories?type=source&q=visibility%3Apublic+archived%3Afalse"
+    }
+  }
+}
