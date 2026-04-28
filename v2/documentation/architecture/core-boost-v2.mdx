@@ -1,15 +1,15 @@
 ---
-title: "Boost V2 Core Protocol Architecture"
-description: "An overview of the Boost V2 core protocol architecture and its components"
+title: "One-Time Actions Architecture"
+description: "An overview of the One-Time Actions protocol architecture and its components"
 ---
 
 import ClaimFlow from '/snippets/claim-flow.mdx';
 
-<Frame caption="High Level Overview of Boost V2">
+<Frame caption="High Level Overview of One-Time Actions">
    <img src="/assets/diagrams/protocol-deploy-claim.png" alt="Boost Overview Diagram" />
 </Frame>
 
-The Boost V2 core protocol architecture is designed to enable flexible, secure, and efficient on-chain incentivization. It consists of several key components that work together to validate actions, generate proofs, and distribute rewards. Here's a breakdown of the architecture:
+The One-Time Actions protocol architecture is designed to enable flexible, secure, and efficient onchain incentivization. It consists of several key components that work together to validate actions, generate proofs, and distribute rewards.
 
 ## Components
 
@@ -86,7 +86,7 @@ When choosing a reward structure, consider factors such as:
 
 A well-designed reward structure can effectively drive desired user actions while maintaining the economic balance of your ecosystem.
 
-## Key Improvements in V2
+## Key Capabilities
 
 - **Flexibility**: The architecture allows for incentivizing actions on any external contract, greatly expanding the use cases for Boost.
 - **Gas Efficiency**: By moving complex validation off-chain and only verifying a compact signature on-chain, gas costs are significantly reduced.
@@ -96,15 +96,15 @@ A well-designed reward structure can effectively drive desired user actions whil
 
 ## How it works
 
-Boost V2 offers a comprehensive suite of features for deploying, managing, and interacting with on-chain incentives. Here's an overview of key processes:
+One-Time Actions include the core flows for deploying, managing, and interacting with action-based incentives:
 
-1. [Deploying Boosts](/v2/documentation/how-it-works/deploying-boosts)
+1. [Deploying Campaigns](/v2/documentation/getting-started/deploying-a-boost)
    Learn how to set up and deploy new Boost incentive programs.
 
-2. [Claiming Rewards](/v2/documentation/how-it-works/claiming-rewards)
+2. [Claiming Rewards](/v2/boost-sdk/boost-core/claim-incentive)
    Explore the user journey for interacting with a Boost and claiming earned rewards.
 
-3. [Use Cases](/v2/documentation/how-it-works/use-cases)
-   Discover various applications and scenarios where Boost V2 can be effectively implemented.
+3. [Action Creation](/v2/documentation/action-creation/introduction)
+   Learn how to define the onchain behavior a campaign should reward.
 
-Each of these topics is covered in detail in its respective page, providing step-by-step guidance and best practices for leveraging the full potential of Boost V2.
+Each of these topics is covered in detail in its respective page.
