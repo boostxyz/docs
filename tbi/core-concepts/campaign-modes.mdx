@@ -1,0 +1,133 @@
+---
+title: "Campaign Modes"
+description: "Composable rules that shape how a TBI campaign distributes rewards"
+---
+
+# Campaign Modes
+
+A TBI campaign supports a set of optional, stackable **modes** — rules that shape how user balances count toward rewards or how rewards are distributed across the campaign as a whole. Combine them to express the strategy you want.
+
+## At a Glance
+
+| Mode | What it does |
+|------|--------------|
+| **New Capital Only** | Reward only deposits made after a chosen point — existing holdings don't earn. |
+| **Per-User Cap** | Cap how much of each user's balance counts toward rewards. |
+| **Minimum Balance** | Filter out positions that fall below a threshold. |
+| **Tiered Multipliers** | Boost rewards for users holding above set tiers. |
+| **Fixed APY** | Pay every participant the same yield, regardless of total participation. |
+| **APY Cap** | Don't pay above a target yield, even if participation is sparse. |
+| **Campaign Capacity** | Cap the total participating balance for the campaign. |
+| **Participant Limit** | Cap the number of unique participants. |
+
+## How Modes Compose
+
+The first four modes adjust each user's **effective balance** — the value the reward math uses each second. They apply in a fixed order:
+
+```
+balance held by user
+  ↓
+[ New Capital Only ]    subtract pre-snapshot balance
+  ↓
+[ Minimum Balance ]     zero out balances below the threshold
+  ↓
+[ Per-User Cap ]        clamp to the per-user cap
+  ↓
+[ Tiered Multipliers ]  multiply by the qualifying tier
+  ↓
+effective balance
+```
+
+The remaining four modes change the campaign-level reward rate or set ceilings on participation. They don't enter the chain above.
+
+## Balance-Based Modes
+
+### New Capital Only
+
+Only deposits made *after* a chosen point in time count toward rewards. Anyone who already held the asset before that point earns nothing on their pre-existing balance — only new growth qualifies.
+
+**When to use:** you're running a campaign to drive net-new deposits and don't want to pay out to users who were already holding.
+
+<Note>
+  The chosen snapshot point must be in the past at config time, so users can't withdraw and re-deposit to game the rules.
+</Note>
+
+### Per-User Cap
+
+Each user's earning balance is capped at a fixed amount. A user holding 10× the cap earns the same as a user at the cap.
+
+**When to use:** you want rewards spread broadly across participants instead of concentrated in a few large holders.
+
+### Minimum Balance
+
+Positions below a threshold don't earn anything. Once a user passes the threshold, their full balance counts.
+
+**When to use:** you want to filter out dust or spam positions and keep rewards flowing to meaningful participants.
+
+### Tiered Multipliers
+
+Define up to four balance tiers, each with a multiplier above 1×. The user earns at the multiplier of the highest tier they qualify for, applied to their full balance.
+
+Example tiers:
+
+| Holding | Multiplier |
+|---------|-----------|
+| ≥ 1,000 | 1.5× |
+| ≥ 10,000 | 2.0× |
+| ≥ 100,000 | 3.0× |
+
+**When to use:** you want larger holders to earn proportionally more without breaking the time-weighted model.
+
+## Rate-Based Modes
+
+These two modes change how the per-second reward rate is calculated. **Only one can be active per campaign.**
+
+### Fixed APY
+
+Every participant earns at a stated annual yield, regardless of how much capital is in the campaign. Total per-second payout scales up with more participants and down with fewer.
+
+**When to use:** you want to advertise a specific yield to participants ("earn 8% APY") instead of "split this pool however many people show up."
+
+### APY Cap
+
+The campaign runs at its natural rate, but tops out at a maximum yield. When the cap is active, unspent rewards roll forward and the campaign extends past its scheduled end time.
+
+**When to use:** you don't want to pay above-market yields if participation is sparse — especially useful when launching with uncertain demand.
+
+## Capacity Modes
+
+These modes set hard ceilings on campaign-wide participation.
+
+### Campaign Capacity
+
+Caps the total participating balance for the campaign. Once it's full, additional deposits aren't tracked toward rewards. Existing participants keep earning normally.
+
+**When to use:** you're running a fixed-size program where excess capital shouldn't dilute the original participants.
+
+### Participant Limit
+
+Caps the number of unique addresses in the campaign. Once the limit is hit, no new participants are added.
+
+**When to use:** limited-cohort programs — the first N users, beta groups, partner allowlists.
+
+## Mode Compatibility
+
+Some modes are currently ERC20-only:
+
+- Per-User Cap, Minimum Balance, Tiered Multipliers
+- Campaign Capacity, Participant Limit
+
+New Capital Only, Fixed APY, and APY Cap work on any supported asset type.
+
+## Mixing Modes for a Strategy
+
+| Strategy | Modes |
+|----------|-------|
+| Reward only new deposits with whale protection | New Capital Only + Per-User Cap |
+| Tiered loyalty for a fixed cohort | Participant Limit + Tiered Multipliers |
+| Open campaign with a floor and ceiling | Minimum Balance + APY Cap |
+| Bounded program with a guaranteed yield | Campaign Capacity + Fixed APY |
+
+<Card title="Next: Launch a Campaign" icon="rocket" href="/tbi/launch-a-campaign">
+  See how the Boost team brings a campaign to life and what to bring to the conversation.
+</Card>

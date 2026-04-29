@@ -3,9 +3,9 @@ title: Get Claim Signature
 description: How to retrieve a signature required for claiming boost incentives
 ---
 
-The Boost API provides two methods to get the required signature for claiming boost incentives:
-1. Using a specific transaction hash via the [GET /signatures endpoint](/v2/api-reference/signatures/get-signature)
-2. Checking recent transactions for an address via the [GET /transactions endpoint](/v2/api-reference/signatures/get-transactions)
+The Boost API provides two methods to get a signature for claiming boost incentives:
+1. Use a transaction hash via the [GET /signatures endpoint](/v2/api-reference/boost/generate-a-claim-signature-that-can-be-used-to-submit-a-claim)
+2. Check recent transactions for an address via the [GET /transactions endpoint](/v2/api-reference/rewardkit/try-to-get-claim-signature-without-known-transaction)
 
 <Note>
   In order to produce a valid signature, the transaction must meet the boost's requirements and the transaction must occur after the boost was created.
@@ -42,17 +42,17 @@ const { signature, claimant, incentiveId } = await response.json();
 ```
 
 <Tip>
-  For complete API details including all available parameters and response fields, see the [API Reference](/v2/api-reference/boosts/validate-&-sign-data-for-a-claim).
+  For complete API details including all available parameters and response fields, see the [API Reference](/v2/api-reference/boost/generate-a-claim-signature-that-can-be-used-to-submit-a-claim).
 </Tip>
 
 ## Fetching Signature by Address
 
-If you want to check if a wallet has completed the boost requirements, you can scan their recent transactions:
+If you want to check whether a wallet has completed the boost requirements, you can scan recent transactions:
 
 ```typescript
 const params = new URLSearchParams({
-  address: '0x1234...', // The wallet address to check
-  boostId: '8453:0x378632819f39c74c4f56b1429e760739c5fb51b7:12'    // The boost ID to validate against
+  address: '0x1234...',
+  boostId: '8453:0x378632819f39c74c4f56b1429e760739c5fb51b7:12'
 });
 
 const response = await fetch(
@@ -61,27 +61,9 @@ const response = await fetch(
 const { signature, claimant, incentiveId } = await response.json();
 ```
 
-This endpoint will:
-1. Check the last 25 transactions for the provided address
-2. Validate if any transaction meets the boost's requirements
-3. Return the signature response if a qualifying transaction is found
-
-<Warning>
-  The transactions endpoint is rate-limited to 1 request every 100ms. Please implement appropriate retry logic in your application.
-</Warning>
-
-### Required Parameters for /transactions
-- `address`: The wallet address to check (format: `0x...`)
-- `boostId`: The ID of the boost (format: `chainId:boostNumber`)
-
-### Response
-```typescript
-{
-    "signature": "0x...",   // Signature for verification
-    "claimant": "0x...",    // Address eligible to claim
-    "incentiveId": 0        // ID of the claimable incentive
-}
-```
+<Tip>
+  For complete API details, see the [GET /transactions reference](/v2/api-reference/rewardkit/try-to-get-claim-signature-without-known-transaction).
+</Tip>
 
 ## Using the Signature
 

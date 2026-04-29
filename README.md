@@ -4,11 +4,11 @@ This is the documentation for Boost, powered by Mintlify.
 
 ### Development
 
-Install mintlify with: `npm i -g mintlify`
+Install the Mintlify CLI with: `npm i -g mint`
 
-Run the local mintlify server with: `mintlify dev`
+Run the local Mintlify server with: `mint dev`
 
-To re-install dependencies, run: `mintlify install`
+Check broken links with: `mint broken-links`
 
 ## Recommended VS Code Extensions
 

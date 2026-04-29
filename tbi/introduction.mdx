@@ -1,0 +1,103 @@
+---
+title: "Time-Based Incentives"
+description: "Reward users continuously for the size and duration of their onchain positions"
+---
+
+# Time-Based Incentives
+
+Time-Based Incentives (TBI) reward users for **how much they hold and how long they hold it**. Instead of paying out on a single qualifying action, a TBI campaign streams rewards every second a user's position is open and stops the moment they exit.
+
+It's the right tool for any program that wants to reward sustained participation — deeper liquidity, longer holding periods, more committed users — rather than a single one-time interaction.
+
+## Two Sides of the Platform
+
+<CardGroup cols={2}>
+  <Card title="For Protocols" icon="rocket" href="/tbi/core-concepts/campaign-modes">
+    Launch campaigns that pay out continuously based on the size and duration of user positions. Configure the reward token, duration, eligibility, and an optional rate cap.
+  </Card>
+
+  <Card title="For Users" icon="wallet" href="/tbi/how-it-works">
+    Earn rewards just by holding the positions that qualify for an active campaign. The bigger your position and the longer you hold, the more you earn — claim onchain whenever you're ready.
+  </Card>
+</CardGroup>
+
+## How Rewards Work
+
+The core idea is intentionally simple:
+
+```
+userReward = userBalance × holdDuration × rewardRate
+```
+
+At any moment, a campaign's per-second reward budget is split across every active position by share. Hold a larger position, earn a larger share. Hold longer, earn more. Exit, and your stream stops — but everything you've already accrued is still claimable.
+
+Two properties worth knowing up front:
+
+- **Join early, earn more.** Fewer participants in the early seconds of a campaign means a larger share of every drip.
+- **No "use it or lose it."** Users can skip claims and pull everything they've accrued later in a single transaction.
+
+<Card title="See the model in action" icon="calculator" href="/tbi/how-it-works">
+  Walk through worked examples that show exactly how rewards are split between users as positions change over time.
+</Card>
+
+## Configure for Any Strategy
+
+Every campaign is shaped by a handful of dials, so the same primitives can power a launch boost, a long-tail loyalty program, or a tightly gated allowlist round.
+
+<CardGroup cols={2}>
+  <Card title="Target what matters" icon="crosshairs">
+    Pick the tokens or contracts that count toward rewards. Run a single-asset campaign or reward holders across a related set of positions.
+  </Card>
+
+  <Card title="Choose your audience" icon="user-check">
+    Run an open campaign, restrict to an allowlist of partner users, or require verification — keep rewards flowing to the participants you actually want.
+  </Card>
+
+  <Card title="Cap or uncap rewards" icon="gauge">
+    Set a maximum reward rate per unit of balance to protect smaller participants from being crowded out by whales, or leave it open and let the budget flow.
+  </Card>
+
+  <Card title="Plan your runtime" icon="calendar-days">
+    Short bursts for launches and seasonal pushes, or long programs for sustained loyalty. Top up an active campaign whenever momentum builds.
+  </Card>
+</CardGroup>
+
+## What Sets Boost Apart
+
+<CardGroup cols={2}>
+  <Card title="Two reward models, one platform" icon="layer-group">
+    Pair TBI with [One-Time Actions](/v2/documentation/overview/introduction) to cover the full user lifecycle — acquisition through discrete rewards, retention through sustained ones — on a single dashboard.
+  </Card>
+
+  <Card title="Cross-chain by default" icon="globe">
+    Index user activity on one chain and pay out rewards on another, so campaigns meet users wherever they already are instead of forcing a migration.
+  </Card>
+
+  <Card title="Hands-off operation" icon="wand-sparkles">
+    Boost runs indexing, calculation, and distribution end-to-end. Set up a campaign, fund it, and let it ride — no per-user accounting to manage.
+  </Card>
+
+  <Card title="Built for any holding" icon="cubes">
+    Not tied to a specific DEX or lending protocol — reward holders of any onchain asset that fits your strategy.
+  </Card>
+</CardGroup>
+
+## Keep Exploring
+
+<CardGroup cols={3}>
+  <Card title="How It Works" icon="book-open" href="/tbi/how-it-works">
+    Walk through how rewards accrue from a user's first position to their final claim.
+  </Card>
+
+  <Card title="Core Concepts" icon="layer-group" href="/tbi/core-concepts/reward-calculation">
+    Reward calculation, campaign lifecycle, and the modes a campaign can run in.
+  </Card>
+
+  <Card title="Building on TBI" icon="code" href="/tbi/integrate/api-overview">
+    API endpoints for surfacing campaigns, earnings, and claims in your own app.
+  </Card>
+</CardGroup>
+
+<Note>
+  Have a campaign in mind that doesn't fit the standard flow? [Reach out to the Boost team](mailto:support@boost.xyz) — Boost is built to take on new strategies.
+</Note>
