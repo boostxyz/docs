@@ -1,10 +1,112 @@
 ---
-title: "How Time-Based Incentives Work"
-description: "Placeholder for Time-Based Incentives documentation"
+title: "How It Works"
+description: "Walk through the lifecycle of a Time-Based Incentives campaign — from launch to claim"
 ---
 
-# How Time-Based Incentives Work
+# How It Works
 
-<Note>
-  This page is a placeholder for the Time-Based Incentives documentation layout. Full content will be added later.
-</Note>
+A Time-Based Incentives campaign is a reward pool that drips out continuously while users hold an eligible position. Bigger position plus longer hold equals a bigger share of the pool.
+
+This page walks through what actually happens during a campaign — what protocols configure, what users experience, and how rewards flow from budget to wallet.
+
+## The Earning Model
+
+Rewards do not unlock at fixed intervals. They accrue every second, distributed in real time across everyone holding a qualifying position at that moment.
+
+Two things shape what a user earns:
+
+- **Position size** — the eligible balance they hold, measured in tokens, USD value, or whatever fits the asset.
+- **Time held** — how long that balance stays active inside the campaign window.
+
+Bigger positions earn faster. Smaller positions still earn — just at a smaller share of the moment. When users enter, exit, or top up, their rate adjusts immediately. Already-accrued rewards stay locked in — exiting a position doesn't forfeit anything earned along the way.
+
+## A Campaign in Four Phases
+
+<Steps titleSize="h3">
+  <Step title="Setup">
+    The team works with Boost to configure the campaign — which position is eligible, the reward token, total budget, schedule, and any rules around eligibility, caps, or tiers. Once funded and committed on-chain, the campaign is live.
+  </Step>
+
+  <Step title="Earning">
+    Boost watches the chain for the eligible behavior. As users enter, transfer, or exit positions, their earning rate updates automatically. Accrued rewards grow in real time inside any product that surfaces the campaign.
+  </Step>
+
+  <Step title="Distribution">
+    On a regular cadence, Boost rolls every user's earnings into an on-chain snapshot. Cumulative balances become claimable. Users do not have to claim immediately and lose nothing by waiting.
+  </Step>
+
+  <Step title="Claim">
+    Users claim through their preferred interface. A single transaction pays out everything they have earned so far. Future earnings keep accruing and become claimable in the next snapshot.
+  </Step>
+</Steps>
+
+## What Each Side Does
+
+### What protocols decide
+
+Protocols set the shape of the campaign — what users are doing, who counts, and what they are earning.
+
+| Decision | What it controls |
+| --- | --- |
+| Targets | Which positions or assets count |
+| Reward token and budget | What's being paid out, and how much |
+| Schedule | When earning starts and ends |
+| Eligibility | Open, allowlist-gated, or verification-gated |
+| Modes | Caps, tiers, snapshots, fixed APY, and other reward shaping |
+
+Once the campaign is live, the configuration is committed. Reward math runs on the rules set at launch.
+
+### What Boost handles
+
+Boost runs the operational layer end to end:
+
+- Indexes the relevant on-chain events.
+- Calculates each user's earnings continuously.
+- Applies eligibility rules, caps, and any campaign-specific modes.
+- Produces distribution snapshots and publishes them on-chain.
+- Serves campaign and user data through public APIs.
+
+Protocols do not need to track positions, perform reward math, or maintain claim infrastructure.
+
+### What users experience
+
+From a user's point of view, the loop is straightforward:
+
+1. Hold or open the eligible position.
+2. Watch rewards accrue while the position stays active.
+3. Claim whenever they're ready — once at the end, periodically, in full or in part.
+
+Integrators can show this loop directly in their own product: the campaigns a user qualifies for, what they're earning right now, and what's available to claim.
+
+## A Concrete Example
+
+A team launches a 30-day campaign with a 60,000 USDC budget on a vault token. That works out to 2,000 USDC per day, distributed across all eligible holders by position size and time held.
+
+- On day one, only one user holds the eligible position. They capture 100% of that day's drip.
+- On day two, more users join. The 2,000 USDC for that day splits proportionally to each user's share of total eligible balance, measured continuously through the day.
+- A user who held a position for the first 15 days then exited keeps every reward earned in those 15 days. They simply stop accruing once they exit.
+- A user who joins on day 20 starts earning from day 20 onward, sharing in the remaining days with everyone else still in.
+
+At the end of the campaign, each user's cumulative rewards are finalized in the next distribution snapshot. They claim once and receive everything they earned.
+
+## Beyond the Basics
+
+The mechanics above describe the default flow. Most campaigns layer in additional rules to match a specific goal — minimum balances, tiered earning, fixed APY, allowlists, or snapshots that lock eligibility at the start.
+
+<CardGroup cols={2}>
+  <Card title="Reward Calculation" icon="calculator" href="/tbi/core-concepts/reward-calculation">
+    The math behind continuous earning, position weighting, and how time gets baked into rewards.
+  </Card>
+
+  <Card title="Campaign Lifecycle" icon="clock-rotate-left" href="/tbi/core-concepts/campaign-lifecycle">
+    How a campaign moves from setup through distribution, including snapshots, top-ups, and early termination.
+  </Card>
+
+  <Card title="Campaign Modes" icon="sliders" href="/tbi/core-concepts/campaign-modes">
+    The reward-shaping rules — caps, tiers, fixed APY, snapshots — that stack on top of a campaign.
+  </Card>
+
+  <Card title="Launch a Campaign" icon="rocket" href="/tbi/launch-a-campaign">
+    What it looks like to bring a campaign to life with the Boost team today.
+  </Card>
+</CardGroup>

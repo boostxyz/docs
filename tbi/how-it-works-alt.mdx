@@ -1,0 +1,129 @@
+---
+title: "How It Works"
+description: "Learn how Time-Based Incentives campaigns move from setup to earning and claiming"
+---
+
+# How It Works
+
+Time-Based Incentives campaigns reward users while they keep an eligible onchain position active.
+
+The basic flow is simple: a protocol chooses the position it wants to grow, funds a reward budget, and sets the campaign rules. Users participate by holding or entering that position. Boost tracks the position over time, calculates rewards, and makes earned rewards available to claim.
+
+The result is a campaign where rewards follow sustained participation instead of a single moment of activity.
+
+## The Campaign Loop
+
+<Steps titleSize="h3">
+  <Step title="A protocol defines the goal">
+    The protocol decides what behavior it wants to grow: deposits, holdings, vault shares, or another supported position.
+  </Step>
+
+  <Step title="Boost turns that goal into a campaign">
+    The campaign defines the eligible position, reward budget, reward token, schedule, eligibility, and any caps or tiers.
+  </Step>
+
+  <Step title="Users keep positions active">
+    Users earn while their position remains eligible. Larger positions and longer participation can earn more.
+  </Step>
+
+  <Step title="Rewards become claimable">
+    Boost calculates accrued rewards and gives users a way to claim what they have earned.
+  </Step>
+</Steps>
+
+## What Protocols Decide
+
+Campaign setup is about choosing the behavior and guardrails that match the protocol's goal.
+
+| Decision | What it means |
+| --- | --- |
+| Eligible position | The token, vault, or protocol position that counts toward rewards. |
+| Reward budget | The amount of rewards available for the campaign. |
+| Reward token | The token users earn. |
+| Campaign window | When rewards start and stop accruing. |
+| Eligibility | Whether the campaign is open, allowlisted, or gated by another requirement. |
+| Controls | Optional rules like minimum balances, caps, tiers, or reward-rate limits. |
+
+These decisions determine who can earn, what counts, and how the budget is distributed over time.
+
+## What Users Do
+
+Users do not need to learn the mechanics of the reward system. They just need to understand the campaign requirement.
+
+In a typical product flow, a user can:
+
+1. Discover an active campaign.
+2. See the position required to earn.
+3. Enter or maintain that position.
+4. Track estimated and accrued rewards.
+5. Claim available rewards when they are ready.
+
+If a user exits the position, they stop earning from that point forward. Rewards they already earned remain part of their accrued balance.
+
+## What Boost Handles
+
+Boost runs the infrastructure that makes the campaign work:
+
+- Tracks eligible positions for active campaigns.
+- Applies eligibility and campaign controls.
+- Calculates rewards based on eligible balance and time held.
+- Surfaces campaign data, user rewards, estimates, and claimable amounts.
+- Supports claim transactions when rewards are available.
+
+This keeps the operational work out of the protocol's product and engineering roadmap while still giving teams a campaign that feels native to their user experience.
+
+## Example Campaign
+
+A protocol wants users to keep capital in a vault for 30 days. It launches a Time-Based Incentives campaign with a fixed reward budget and points the campaign at the vault share token.
+
+During the campaign:
+
+- Users who hold vault shares are eligible to earn.
+- A user with a larger eligible balance can earn more than a user with a smaller balance.
+- A user who stays in the vault for the full campaign can earn more than a user who exits after a few days.
+- A user who joins late can still earn for the time they participate.
+- Once rewards are available, users can claim what they have earned.
+
+The protocol gets a campaign designed around retention, not just initial entry.
+
+## Why This Matters
+
+Time-Based Incentives are useful when the value of a user action depends on what happens after the first transaction.
+
+<CardGroup cols={2}>
+  <Card title="Better retention" icon="clock">
+    Reward users for staying active through the campaign window.
+  </Card>
+
+  <Card title="More flexible rewards" icon="sliders">
+    Shape earning with eligibility, caps, tiers, and reward-rate controls.
+  </Card>
+
+  <Card title="Clear user experience" icon="wallet">
+    Show users what to do, what they are earning, and what they can claim.
+  </Card>
+
+  <Card title="Less manual work" icon="wand-sparkles">
+    Let Boost handle tracking, accounting, campaign data, and claim support.
+  </Card>
+</CardGroup>
+
+## Keep Exploring
+
+<CardGroup cols={2}>
+  <Card title="Reward Calculation" icon="calculator" href="/tbi/core-concepts/reward-calculation">
+    Learn how eligible balance and time held determine rewards.
+  </Card>
+
+  <Card title="Campaign Lifecycle" icon="clock-rotate-left" href="/tbi/core-concepts/campaign-lifecycle">
+    Follow a campaign from setup through earning, claiming, and completion.
+  </Card>
+
+  <Card title="Campaign Modes" icon="sliders" href="/tbi/core-concepts/campaign-modes">
+    Explore the controls that shape who earns and how much.
+  </Card>
+
+  <Card title="Launch a Campaign" icon="rocket" href="/tbi/launch-a-campaign">
+    See how to bring a Time-Based Incentives campaign live.
+  </Card>
+</CardGroup>
