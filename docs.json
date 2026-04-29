@@ -68,6 +68,12 @@
             ]
           },
           {
+            "group": "Run a Campaign",
+            "pages": [
+              "tbi/launch-a-campaign"
+            ]
+          },
+          {
             "group": "Integrate Time-Based Incentives",
             "pages": [
               "tbi/integrate/api-overview",
