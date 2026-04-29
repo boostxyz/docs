@@ -60,6 +60,14 @@ In a typical product flow, a user can:
 
 If a user exits the position, they stop earning from that point forward. Rewards they already earned remain part of their accrued balance.
 
+## Where Funds Sit
+
+Users enter positions directly through the protocol or application where the position lives. Boost does not custody user deposits or move user principal into a Boost-controlled pool. Boost tracks the eligible position and pays additional rewards for maintaining it.
+
+Campaign reward funds are separate from user deposits. Protocols fund the reward budget for a campaign, and those reward tokens sit in campaign smart contracts so they are available for eligible users to claim as rewards accrue.
+
+After the campaign ends, funds that were never allocated to users can be reclaimed. Users then have the campaign's claim window to claim rewards they earned; standard campaigns are configured with a 60-day claim window. After that window expires, any still-unclaimed reward funds can also be reclaimed.
+
 ## What Boost Handles
 
 Boost runs the infrastructure that makes the campaign work:
