@@ -1,84 +1,109 @@
 ---
 title: "Time-Based Incentives"
-description: "Reward users continuously for the size and duration of their onchain positions"
+description: "Reward users for keeping eligible onchain positions active over time"
 ---
 
 # Time-Based Incentives
 
-Time-Based Incentives (TBI) reward users for **how much they hold and how long they hold it**. Instead of paying out on a single qualifying action, a TBI campaign streams rewards every second a user's position is open and stops the moment they exit.
+Time-Based Incentives help teams grow sustained onchain participation by rewarding users for the positions they keep active over time.
 
-It's the right tool for any program that wants to reward sustained participation — deeper liquidity, longer holding periods, more committed users — rather than a single one-time interaction.
+Instead of paying the same reward to every user who completes a single action, a Time-Based Incentives campaign rewards users based on the size of their eligible position and how long they maintain it. Larger positions can earn more. Longer-held positions can earn more. Users who exit early stop accruing, while the rewards they already earned remain available to claim.
 
-## Two Sides of the Platform
+Use Time-Based Incentives when your goal is to build durable behavior: deeper liquidity, longer holding periods, stronger retention, or more committed participation in a protocol, vault, token, or ecosystem.
+
+## Who It Is For
 
 <CardGroup cols={2}>
-  <Card title="For Protocols" icon="rocket" href="/tbi/core-concepts/campaign-modes">
-    Launch campaigns that pay out continuously based on the size and duration of user positions. Configure the reward token, duration, eligibility, and an optional rate cap.
+  <Card title="Protocols" icon="rocket" href="/tbi/core-concepts/campaign-modes">
+    Launch campaigns that align rewards with the behavior you actually want: users keeping valuable positions active through a campaign window.
   </Card>
 
-  <Card title="For Users" icon="wallet" href="/tbi/how-it-works">
-    Earn rewards just by holding the positions that qualify for an active campaign. The bigger your position and the longer you hold, the more you earn — claim onchain whenever you're ready.
+  <Card title="Users" icon="wallet" href="/tbi/how-it-works">
+    Earn rewards by maintaining a qualifying position. The bigger the eligible position and the longer it stays active, the more it can earn.
   </Card>
 </CardGroup>
 
-## How Rewards Work
+## What You Can Build
 
-The core idea is intentionally simple:
+Time-Based Incentives are flexible enough to support different growth strategies without changing the core user experience.
 
-```
-userReward = userBalance × holdDuration × rewardRate
-```
+- Bootstrap liquidity for a new market, vault, or ecosystem.
+- Reward loyal users who keep positions active instead of rotating out immediately.
+- Run a targeted campaign for a specific partner, segment, or allowlist.
+- Protect a budget with minimum balances, caps, tiers, or reward-rate limits.
+- Show users clear earnings, accrued rewards, and claimable rewards inside your own product.
 
-At any moment, a campaign's per-second reward budget is split across every active position by share. Hold a larger position, earn a larger share. Hold longer, earn more. Exit, and your stream stops — but everything you've already accrued is still claimable.
+For one-time behaviors like minting, swapping, voting, or completing a specific contract interaction, use [One-Time Actions](/v2/documentation/overview/introduction) instead.
 
-Two properties worth knowing up front:
+## How Campaigns Work
 
-- **Join early, earn more.** Fewer participants in the early seconds of a campaign means a larger share of every drip.
-- **No "use it or lose it."** Users can skip claims and pull everything they've accrued later in a single transaction.
+<Steps titleSize="h3">
+  <Step title="Pick the position">
+    Choose the supported token, vault, or protocol position that should count toward rewards.
+  </Step>
 
-<Card title="See the model in action" icon="calculator" href="/tbi/how-it-works">
-  Walk through worked examples that show exactly how rewards are split between users as positions change over time.
-</Card>
+  <Step title="Set the campaign strategy">
+    Define the reward token, total budget, schedule, eligibility, and any campaign controls.
+  </Step>
 
-## Configure for Any Strategy
+  <Step title="Users participate">
+    Users enter or maintain the eligible position. Their rewards accrue while the position remains eligible.
+  </Step>
 
-Every campaign is shaped by a handful of dials, so the same primitives can power a launch boost, a long-tail loyalty program, or a tightly gated allowlist round.
+  <Step title="Boost handles the operations">
+    Boost tracks positions, calculates accrued rewards, surfaces campaign and user data, and supports reward claims.
+  </Step>
+</Steps>
+
+<Note>
+  **Cross-chain by default.** A campaign can index user activity on one chain and pay rewards on another, so users earn where they already are.
+</Note>
+
+## Campaign Controls
+
+Teams can shape campaigns with a few important controls:
+
+| Control | What it answers |
+| --- | --- |
+| Target position | What user behavior should count? *(e.g., holding a vault token, an LP share, or a staked balance)* |
+| Reward budget | How much are you willing to spend? |
+| Schedule | When should rewards start and stop? |
+| Eligibility | Who should be able to earn? |
+| Caps and tiers | How should rewards be distributed across small and large participants? |
+| Claim window | How long should users have to claim after the campaign ends? |
+
+These controls let you design around a campaign goal instead of forcing every rewards program into the same shape.
+
+## User Experience
+
+From a user's point of view, the earning model is simple:
+
+1. Join an eligible campaign.
+2. Keep the qualifying position active.
+3. Watch rewards accrue over time.
+4. Claim available rewards when they are ready.
+
+Integrations can show campaign opportunities, eligible balances, estimated earnings, accrued rewards, claimed rewards, and claimable rewards.
+
+## Why Teams Use It
+
+Time-Based Incentives are built for programs where duration matters.
 
 <CardGroup cols={2}>
-  <Card title="Target what matters" icon="crosshairs">
-    Pick the tokens or contracts that count toward rewards. Run a single-asset campaign or reward holders across a related set of positions.
+  <Card title="Better alignment" icon="link">
+    Reward users who continue contributing value, instead of paying equally for short-lived and long-lived participation.
   </Card>
 
-  <Card title="Choose your audience" icon="user-check">
-    Run an open campaign, restrict to an allowlist of partner users, or require verification — keep rewards flowing to the participants you actually want.
+  <Card title="Budget control" icon="gauge">
+    Use campaign rules to manage who earns, how much balance counts, and how rewards are paced.
   </Card>
 
-  <Card title="Cap or uncap rewards" icon="gauge">
-    Set a maximum reward rate per unit of balance to protect smaller participants from being crowded out by whales, or leave it open and let the budget flow.
+  <Card title="Clear user motivation" icon="chart-line">
+    Give users a visible reason to maintain the position that matters to your product.
   </Card>
 
-  <Card title="Plan your runtime" icon="calendar-days">
-    Short bursts for launches and seasonal pushes, or long programs for sustained loyalty.
-  </Card>
-</CardGroup>
-
-## What Sets Boost Apart
-
-<CardGroup cols={2}>
-  <Card title="Two reward models, one platform" icon="layer-group">
-    Pair TBI with [One-Time Actions](/v2/documentation/overview/introduction) to cover the full user lifecycle — acquisition through discrete rewards, retention through sustained ones — on a single dashboard.
-  </Card>
-
-  <Card title="Cross-chain by default" icon="globe">
-    Index user activity on one chain and pay out rewards on another, so campaigns meet users wherever they already are instead of forcing a migration.
-  </Card>
-
-  <Card title="Hands-off operation" icon="wand-sparkles">
-    Boost runs indexing, calculation, and distribution end-to-end. Set up a campaign, fund it, and let it ride — no per-user accounting to manage.
-  </Card>
-
-  <Card title="Built for any holding" icon="cubes">
-    Not tied to a specific DEX or lending protocol — reward holders of any onchain asset that fits your strategy.
+  <Card title="Less operational overhead" icon="wand-sparkles">
+    Boost handles tracking, reward accounting, campaign data, and claim infrastructure.
   </Card>
 </CardGroup>
 
@@ -86,14 +111,14 @@ Every campaign is shaped by a handful of dials, so the same primitives can power
 
 <CardGroup cols={3}>
   <Card title="How It Works" icon="book-open" href="/tbi/how-it-works">
-    Walk through how rewards accrue from a user's first position to their final claim.
+    Learn the campaign flow from setup through earning and claiming.
   </Card>
 
   <Card title="Core Concepts" icon="layer-group" href="/tbi/core-concepts/reward-calculation">
-    Reward calculation, campaign lifecycle, and the modes a campaign can run in.
+    Reward calculation, campaign lifecycle, and campaign modes.
   </Card>
 </CardGroup>
 
 <Note>
-  Have a campaign in mind that doesn't fit the standard flow? [Reach out to the Boost team](mailto:support@boost.xyz) — Boost is built to take on new strategies.
+  Have a campaign in mind that does not fit the standard flow? [Reach out to the Boost team](mailto:support@boost.xyz).
 </Note>
