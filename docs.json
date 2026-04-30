@@ -76,14 +76,6 @@
             ]
           },
           {
-            "group": "Integrate Time-Based Incentives",
-            "pages": [
-              "tbi/integrate/api-overview",
-              "tbi/integrate/user-rewards",
-              "tbi/integrate/claim-rewards"
-            ]
-          },
-          {
             "group": "Resources",
             "pages": [
               "tbi/glossary"
