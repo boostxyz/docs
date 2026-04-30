@@ -64,7 +64,8 @@
             "pages": [
               "tbi/core-concepts/reward-calculation",
               "tbi/core-concepts/campaign-lifecycle",
-              "tbi/core-concepts/campaign-modes"
+              "tbi/core-concepts/campaign-modes",
+              "tbi/core-concepts/earning-activation"
             ]
           },
           {
