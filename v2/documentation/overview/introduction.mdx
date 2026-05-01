@@ -3,15 +3,19 @@ title: "One-Time Actions"
 description: "Reward users once when they complete a qualifying onchain action"
 ---
 
-One-Time Actions let teams reward users for completing discrete onchain activity, such as mints, swaps, votes, delegations, and contract interactions.
+One-Time Actions (*also known as **Boosts***) let teams reward users for completing discrete onchain activity, such as mints, swaps, votes, delegations, and contract interactions.
 
-A One-Time Actions campaign defines what action qualifies, who should be treated as the claimant, and what reward the user can claim after the action is validated.
+A One-Time Action defines what onchain activity qualifies, who should be treated as the claimant, and what reward the user can claim after the action is validated.
+
+<Note>
+  **One-Time Actions are also known as *Boosts*.** You'll see both terms throughout the docs, SDK, and contracts (e.g., "deploy a boost", `BoostCore`). They refer to the same thing — an individual One-Time Actions program.
+</Note>
 
 ## What You Can Do
 
 <CardGroup cols={2}>
-  <Card title="Deploy Campaigns" icon="rocket" href="/v2/documentation/getting-started/setting-up-accounts">
-    Create token incentive campaigns that reward users for qualifying onchain actions.
+  <Card title="Deploy One-Time Actions" icon="rocket" href="/v2/documentation/getting-started/setting-up-accounts">
+    Create token incentive programs that reward users for qualifying onchain actions.
   </Card>
 
   <Card title="Build with Boost" icon="code" href="/v2/documentation/architecture/core-boost-v2">
@@ -21,7 +25,7 @@ A One-Time Actions campaign defines what action qualifies, who should be treated
 
 ## Getting Started
 
-If you're looking to deploy a campaign, start here:
+If you're looking to deploy a One-Time Action, start here:
 
 <Steps titleSize="h3">
   <Step title="Set up Accounts">
@@ -36,16 +40,16 @@ If you're looking to deploy a campaign, start here:
     [Set up an Action](/v2/documentation/getting-started/setting-up-an-action)
   </Step>
 
-  <Step title="Deploy a Campaign">
-    Configure rewards and launch your campaign.
+  <Step title="Deploy a One-Time Action">
+    Configure rewards and launch your One-Time Action.
 
-    [Deploy a Campaign](/v2/documentation/getting-started/deploying-a-boost)
+    [Deploy a One-Time Action](/v2/documentation/getting-started/deploying-a-boost)
   </Step>
 
-  <Step title="Manage Campaigns">
-    Monitor performance, top up, or end campaigns.
+  <Step title="Manage One-Time Actions">
+    Monitor performance, top up, or end One-Time Actions.
 
-    [Manage Campaigns](/v2/documentation/getting-started/managing-boosts)
+    [Manage One-Time Actions](/v2/documentation/getting-started/managing-boosts)
   </Step>
 </Steps>
 
@@ -53,11 +57,11 @@ If you're looking to deploy a campaign, start here:
 
 <CardGroup cols={2}>
   <Card title="Boost SDK" icon="toolbox" href="/v2/boost-sdk/overview">
-    TypeScript SDK for deploying and managing One-Time Actions campaigns programmatically.
+    TypeScript SDK for deploying and managing One-Time Actions programmatically.
   </Card>
 
   <Card title="One-Time Actions API" icon="server" href="/v2/boost-api/fetch-boosts">
-    REST API guides for querying campaigns, claims, and activity.
+    REST API guides for querying One-Time Actions, claims, and activity.
   </Card>
 
   <Card title="Architecture" icon="sitemap" href="/v2/documentation/architecture/core-boost-v2">
