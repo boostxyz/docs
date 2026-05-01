@@ -1,6 +1,123 @@
 ---
 title: "Frequently Asked Questions"
-description: "Answers to frequently asked questions about Boost"
+description: "Common questions about Boost campaigns, fees, supported chains, and how rewards reach users"
 ---
 
-### Placeholder
+## Choosing a Product
+
+<AccordionGroup>
+  <Accordion title="Should I use Time-Based Incentives or One-Time Actions?">
+    Use **Time-Based Incentives** when you want users to be rewarded for *how long* and *how much* they keep capital in your protocol — for example, depositors holding a position in a vault, lenders, LPs, or stakers. Rewards accrue continuously over the campaign window.
+
+    Use **One-Time Actions** when you want to reward a *discrete* onchain action — a swap, mint, vote, delegation, or contract call. Each qualifying user can claim once.
+
+    If you're not sure, [reach out to the team](mailto:support@boost.xyz) and we can help you pick.
+  </Accordion>
+
+  <Accordion title="Can I run both kinds of campaigns?">
+    Yes. The two products are independent and serve different goals, so it's common for a protocol to use both at different times.
+  </Accordion>
+</AccordionGroup>
+
+## Onboarding & Setup
+
+<AccordionGroup>
+  <Accordion title="How do I get started?">
+    - **One-Time Actions** are self-serve. Sign in at [boost.xyz](https://boost.xyz) and follow [Setting up Accounts](/v2/documentation/getting-started/setting-up-accounts) to create your team and deploy your first campaign.
+    - **Time-Based Incentives** are partnership-driven. [Email the Boost team](mailto:support@boost.xyz) to scope a campaign — see [Launch a Campaign](/tbi/launch-a-campaign) for what onboarding looks like.
+  </Accordion>
+
+  <Accordion title="Do I need a crypto wallet to get started?">
+    No. The platform uses [Privy](https://privy.io) for authentication and creates an embedded wallet automatically when you sign in with email or Google.
+  </Accordion>
+
+  <Accordion title="How long does it take to launch a campaign?">
+    - **One-Time Actions**: Action review takes 24-48 hours. Once approved, deploying the campaign takes a few minutes.
+    - **Time-Based Incentives**: Onboarding timelines depend on integration scope. Plan to start the conversation a couple of weeks before you want to go live.
+  </Accordion>
+</AccordionGroup>
+
+## Fees & Funding
+
+<AccordionGroup>
+  <Accordion title="What does it cost?">
+    Boost charges a **10% protocol fee** on rewards distributed through One-Time Actions. The fee is added on top of your spend limit when you deploy — if you want to distribute 1,000 USDC, you'll need 1,100 USDC in your budget account. The fee is only charged on rewards that are actually claimed.
+
+    Time-Based Incentives campaign economics are scoped during onboarding.
+  </Accordion>
+
+  <Accordion title="Who funds the rewards?">
+    The protocol running the campaign funds it. Rewards are sent from a budget account (One-Time Actions) or a campaign-funded reward pool (Time-Based Incentives) that you control.
+  </Accordion>
+
+  <Accordion title="Can I get unused funds back?">
+    Yes. If a campaign ends with rewards left undistributed, the unused balance is recoverable by the team that funded it.
+  </Accordion>
+</AccordionGroup>
+
+## Chains & Tokens
+
+<AccordionGroup>
+  <Accordion title="What chains are supported?">
+    One-Time Actions sponsored transactions are supported on **Base, Optimism, Celo, and World Chain**. Other EVM chains may be available depending on the campaign — [reach out](mailto:support@boost.xyz) if you need a specific chain.
+  </Accordion>
+
+  <Accordion title="What tokens can I use as rewards?">
+    For One-Time Actions, only whitelisted ERC-20 tokens can be used. The whitelist includes popular, verified tokens on each supported chain. If your token isn't listed, request it on [Discord](https://discord.gg/gdu3EpeqsD) with the contract address and chain — requests are typically reviewed within 24-48 hours.
+
+    For Time-Based Incentives, the reward token is configured during campaign setup with the team.
+  </Accordion>
+</AccordionGroup>
+
+## For Your Users
+
+<AccordionGroup>
+  <Accordion title="Where do users see and claim rewards?">
+    Both products surface campaigns to end users on [rabbithole.gg](https://rabbithole.gg) — Boost's consumer app. Users browse active campaigns, track their progress, and claim rewards directly from there. You don't need to host a claim UI yourself.
+  </Accordion>
+
+  <Accordion title="Do users need ETH for gas?">
+    On supported chains, transactions are sponsored, so users don't need ETH to claim. Time-Based Incentives also has a gasless [earning activation](/tbi/core-concepts/earning-activation) flow for opting in.
+  </Accordion>
+
+  <Accordion title="Can I prevent bots or sybil farming?">
+    Yes:
+    - **One-Time Actions** support allowlists — restrict claims to a specific set of addresses (NFT holders, token holders, partner communities, etc.).
+    - **Time-Based Incentives** support eligibility filters like minimum balance, new capital only, and earning activation, which limits rewards to users who actually came through Boost.
+
+    If you see unwanted behavior, you can also end a campaign early.
+  </Accordion>
+</AccordionGroup>
+
+## Running Campaigns
+
+<AccordionGroup>
+  <Accordion title="Can I end a campaign early?">
+    Yes. The team that owns the campaign can stop it at any time. Remaining funds are returned to the funding account.
+  </Accordion>
+
+  <Accordion title="Can I add more budget to an active campaign?">
+    For One-Time Actions, you can top up the budget at any time from the dashboard. Time-Based Incentives campaigns are sized at launch and don't currently support mid-flight top-ups.
+  </Accordion>
+
+  <Accordion title="Where do I see analytics?">
+    - **One-Time Actions**: Your dashboard at [boost.xyz](https://boost.xyz) shows claims, budget used, average cost per claim, and recent activity.
+    - **Time-Based Incentives**: Your campaigns appear on [rabbithole.gg](https://rabbithole.gg) with TVL, participants, and distributed rewards visible alongside the user-facing view.
+  </Accordion>
+
+  <Accordion title="What happens to rewards users never claim?">
+    Anything unclaimed at the end of the campaign's claim window is recoverable by the funding team.
+  </Accordion>
+</AccordionGroup>
+
+## Still Have Questions?
+
+<CardGroup cols={2}>
+  <Card title="Email the team" icon="envelope" href="mailto:support@boost.xyz">
+    support@boost.xyz
+  </Card>
+
+  <Card title="Discord" icon="discord" href="https://discord.gg/gdu3EpeqsD">
+    Community support and faster questions
+  </Card>
+</CardGroup>

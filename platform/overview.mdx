@@ -1,11 +1,22 @@
 ---
-title: "Platform Overview"
+title: "Introduction"
 description: "Boost product documentation for onchain incentive campaigns"
 ---
 
-# Boost Platform
+## What is Boost
 
-Boost helps teams create token incentive campaigns for onchain activity.
+Boost is a platform for running token incentive campaigns onchain. Teams configure the behavior they want to reward — depositing into a vault, swapping on a DEX, voting on a proposal, holding a position over time — and Boost handles the operational layer: indexing onchain activity, calculating accrued rewards, snapshotting balances, and supporting claims.
+
+The platform offers two products:
+
+- **[Time-Based Incentives](/tbi/introduction)** reward users *continuously* for the size and duration of an onchain position they keep active. Designed for sustained behavior — deeper liquidity, longer holding periods, retention.
+- **[One-Time Actions](/v2/documentation/overview/introduction)** reward users *once* for completing a discrete onchain activity. Designed for specific actions — mints, swaps, votes, governance, contract calls.
+
+Campaigns reach end users through [rabbithole.gg](https://rabbithole.gg), Boost's consumer app where users discover, participate in, and claim rewards. Protocols don't need to host a claim UI — rabbithole.gg handles distribution for both products.
+
+Boost is built for product, growth, and ecosystem teams at protocols and apps that want a focused way to incentivize specific onchain behavior.
+
+## Browse the Docs
 
 The docs are organized by product:
 
@@ -38,6 +49,26 @@ The docs are organized by product:
   Interested in running Time-Based Incentives campaigns? [Reach out to the Boost team](mailto:support@boost.xyz) — we'll work with you to integrate your protocol and launch the campaign.
 </Note>
 
-## Shared Concepts
+## What's Shared Across Products
 
-Both incentive products use Boost platform primitives such as campaign configuration, reward tokens, supported chains, and claim flows. Product-specific guides explain the details that differ between Time-Based Incentives and One-Time Actions.
+Both products distribute ERC-20 token rewards on EVM chains, and both surface campaigns to end users through [rabbithole.gg](https://rabbithole.gg) — Boost's consumer app where users discover and claim rewards.
+
+| | Time-Based Incentives | One-Time Actions |
+| --- | --- | --- |
+| **Reward type** | ERC-20 tokens | ERC-20 tokens |
+| **Where users participate** | rabbithole.gg | rabbithole.gg |
+| **Onboarding** | Partner with the Boost team | Self-serve at [boost.xyz](https://boost.xyz) |
+
+Product-specific guides cover the details that differ — campaign configuration, eligibility rules, reward calculation, and lifecycle.
+
+## Getting Help
+
+<CardGroup cols={2}>
+  <Card title="Email the team" icon="envelope" href="mailto:support@boost.xyz">
+    support@boost.xyz — best for partnership inquiries and TBI campaign setup.
+  </Card>
+
+  <Card title="Discord" icon="discord" href="https://discord.gg/gdu3EpeqsD">
+    Faster questions, token whitelist requests, and community support.
+  </Card>
+</CardGroup>
