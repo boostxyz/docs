@@ -56,7 +56,8 @@
             "group": "Start Here",
             "pages": [
               "tbi/introduction",
-              "tbi/how-it-works"
+              "tbi/how-it-works",
+              "tbi/user-experience"
             ]
           },
           {

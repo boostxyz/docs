@@ -1,0 +1,107 @@
+---
+title: "User Experience"
+description: "What participating in a Time-Based Incentives campaign looks like for a user — discovery, depositing, earning, and claiming"
+---
+
+This page walks through what participating in a campaign actually looks like for a user — from discovering an opportunity to claiming earned rewards. The screenshots are from [rabbithole.gg](https://rabbithole.gg), Boost's consumer-facing app where active campaigns live alongside one-time actions and other earning opportunities.
+
+## The Home Dashboard
+
+When a user lands on rabbithole.gg, the home dashboard surfaces everything they need to know about what they're earning and what's available to earn next.
+
+<Frame>
+  <img src="/assets/tbi/home-dashboard.png" alt="Rabbithole.gg home dashboard showing projected live earnings, potential annual earnings, current tier and rank, dashboard stats (earning boosts, available to claim, claimed, deposited, terms completed), and a list of active 'Hold to Earn' campaigns." />
+</Frame>
+
+The key elements:
+
+- **Projected Live Earnings** — a real-time counter ticking up every second as rewards accrue. The Day / Week / Month / Year toggle changes the projection horizon.
+- **Potential Earnings** — what the user is on track to earn over the selected window if they keep their current positions.
+- **Current Rank** — the user's leaderboard position and tier (Bronze, Silver, Gold, Platinum, Diamond).
+- **Dashboard stats** — at-a-glance numbers for active boosts, claimable rewards, lifetime claimed, total deposited, and one-time terms completed.
+- **Hold to Earn** — the active TBI campaigns the user qualifies for, with APY, TVL, term length, and current status.
+- **One-Time Actions** — discrete tasks (swaps, mints, votes) that pay a fixed reward, separate from continuous Hold to Earn rewards.
+
+## Joining a Campaign
+
+Clicking into a Hold to Earn opportunity opens the campaign's detail panel.
+
+<Frame>
+  <img src="/assets/tbi/campaign-detail.png" alt="Campaign detail panel showing the campaign name and badges, APY, term, participant count, TVL, TVE, remaining rewards, description, and — when configured — deposit tier breakpoints and an 'Only deposits via Rabbithole earn rewards' activation callout." />
+</Frame>
+
+The top of the panel gives the user a quick read on the campaign:
+
+- **APY** — the current rate, with a sub-line indicating whether it's fixed for the term or floats with TVL.
+- **Term, Participants, TVL, TVE** — the four-card summary of campaign size, schedule, and engagement.
+- **Remaining Rewards** — how much of the budget is still flowing.
+- **Description** — what the user has to hold to earn.
+- **Deposit Tiers** (when configured) — multiplier breakpoints that reward larger positions super-proportionally. See [Campaign Modes](/tbi/core-concepts/campaign-modes).
+- **Activation callout** (when applicable) — a reminder that only deposits routed through Rabbithole earn rewards on this campaign. See [Earning Activation](/tbi/core-concepts/earning-activation).
+
+Scrolling down on the panel opens the deposit form:
+
+<Frame>
+  <img src="/assets/tbi/deposit-form.png" alt="Deposit form showing an amount input with 25/50/75/MAX percentage shortcuts, an ETH token selector with the user's wallet balance, a Swap + Deposit fee preview, and a Deposit button." />
+</Frame>
+
+The form handles everything in one transaction:
+
+- **Amount** — the position the user wants to open, with 25/50/75/MAX percentage shortcuts.
+- **Token selector** — pick the token to deposit; the form swaps under the hood if the campaign target uses a different asset.
+- **Swap + Deposit fee** — a preview of the network fee for the transaction.
+- **Deposit** — confirms the transaction. The deposit routes through Boost (activating the user for any campaigns with Earning Activation enabled) and lands in the underlying protocol.
+
+When the deposit confirms, the user receives the receipt token (vault shares, aTokens, etc.) directly in their wallet and rewards start accruing.
+
+## Watching Rewards Accrue
+
+After depositing, the home dashboard's "Projected Live Earnings" counter starts ticking up in real time. The "Potential Earnings" estimate adjusts as the campaign's APY shifts. There's nothing the user has to do to keep earning — the position just has to stay open.
+
+If the user partially withdraws, their earning rate drops proportionally. If they fully exit, accrual stops, but every reward they had already earned stays in their accrued balance and remains claimable.
+
+## Claiming Rewards
+
+Rewards become claimable shortly after a campaign goes live and at every snapshot afterward. When a campaign has rewards ready, the user can claim them directly from the campaign detail panel.
+
+<Frame>
+  <img src="/assets/tbi/claim-modal.png" alt="Campaign detail panel marked Campaign ended. The Claim section shows the reward amount in USDC on the Base network, a network fee preview, and a Claim rewards button. A Quote refreshes counter shows the fee estimate updating periodically." />
+</Frame>
+
+The claim flow:
+
+- **Reward amount** — the cumulative total available right now, denominated in the campaign's reward token.
+- **Network fee** — gas estimate for the claim transaction, refreshed periodically.
+- **Claim rewards** — a single button that submits the on-chain claim and transfers the rewards to the user's wallet.
+
+Claims are cumulative — claiming once now and once again at the end of the campaign, or saving up and claiming everything at the end, all return the same total. Users lose nothing by waiting, so they can batch claims to save on gas.
+
+## Tier and Leaderboard
+
+Beyond per-campaign rewards, rabbithole.gg tracks user activity into a tier system: **Bronze → Silver → Gold → Platinum → Diamond**. Tiers reflect cumulative engagement across all the campaigns and actions a user has participated in.
+
+Tier perks vary depending on what's running — priority on capacity-limited campaigns, allowlist access to gated launches, and fee or boost benefits at higher tiers.
+
+## Where Funds Sit
+
+- **Principal stays in the protocol.** A vault deposit goes into the vault; an Aave supply goes into Aave. Boost doesn't custody user funds — receipt tokens live in the user's own wallet from the moment of deposit.
+- **Reward funds live in the campaign contract.** Each campaign has its own contract holding its reward budget. Rewards transfer to the user when they claim.
+
+The two pots stay separate the entire time. Users withdraw their position from the underlying protocol exactly the way they'd withdraw without a campaign attached.
+
+## Keep Exploring
+
+<CardGroup cols={2}>
+  <Card title="How It Works" icon="book-open" href="/tbi/how-it-works">
+    The full picture of a campaign — how protocols configure it, how Boost runs it, and how rewards flow.
+  </Card>
+  <Card title="Reward Calculation" icon="calculator" href="/tbi/core-concepts/reward-calculation">
+    How eligible balance and time held translate into actual reward amounts.
+  </Card>
+  <Card title="Earning Activation" icon="key" href="/tbi/core-concepts/earning-activation">
+    How some campaigns gate rewards to users who entered through Boost.
+  </Card>
+  <Card title="Glossary" icon="book" href="/tbi/glossary">
+    Quick definitions for terms used across the docs.
+  </Card>
+</CardGroup>
